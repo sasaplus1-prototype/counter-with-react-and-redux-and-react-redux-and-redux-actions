@@ -3161,8 +3161,16 @@ exports.increment = exports.decrement = undefined;
 var _reduxActions = __webpack_require__(44);
 
 var _createActions = (0, _reduxActions.createActions)({
-  DECREMENT: undefined,
-  INCREMENT: undefined
+  DECREMENT: function DECREMENT() {
+    var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : -1;
+
+    return value;
+  },
+  INCREMENT: function INCREMENT() {
+    var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+    return value;
+  }
 }),
     decrement = _createActions.decrement,
     increment = _createActions.increment;
@@ -23538,11 +23546,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 exports.default = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProperty(_handleActions, _countActionCreator.decrement, function (state, action) {
   return Object.assign({}, state, {
-    count: state.count - 1
+    count: state.count + action.payload
   });
 }), _defineProperty(_handleActions, _countActionCreator.increment, function (state, action) {
   return Object.assign({}, state, {
-    count: state.count + 1
+    count: state.count + action.payload
   });
 }), _handleActions), { count: 0 });
 

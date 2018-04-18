@@ -4,6 +4,10 @@ export const {
   decrement,
   increment,
 } = createActions({
-  DECREMENT: undefined,
-  INCREMENT: undefined,
+  DECREMENT(value = -1) {
+    return value;
+  },
+  INCREMENT(value = 1) {
+    return value;
+  },
 });
